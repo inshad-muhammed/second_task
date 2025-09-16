@@ -11,8 +11,11 @@ class QuickLinkPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     final selectedIndex = ref.watch(selectedIndexesProvider);
     final random = Random();
+
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.arrow_back),
@@ -22,7 +25,7 @@ class QuickLinkPage extends ConsumerWidget {
           "Customize Quick Links",
           style: TextStyle(
             color: const Color.fromARGB(255, 59, 93, 121),
-            fontSize: 20,
+            fontSize: screenWidth * 0.05,
             fontWeight: FontWeight.w900,
           ),
         ),
@@ -37,7 +40,7 @@ class QuickLinkPage extends ConsumerWidget {
               "Select upto 4 Options",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 24,
+                fontSize: screenWidth * 0.06,
                 fontWeight: FontWeight.w900,
               ),
             ),
@@ -45,18 +48,18 @@ class QuickLinkPage extends ConsumerWidget {
               "You want have quick acces to",
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 16,
+                fontSize: screenWidth * 0.04,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: screenHeight * 0.03),
             Expanded(
               child: Wrap(
-                spacing: 24,
-                runSpacing: 24,
+                spacing: screenWidth * 0.06,
+                runSpacing: screenHeight * 0.035,
 
                 children: List.generate(16, (index) {
-                  final angleDegrees = random.nextDouble() * 8;
+                  final angleDegrees = random.nextDouble() * 6;
                   final angle = angleDegrees * pi / 180;
                   final isSelected = selectedIndex.contains(index);
 
@@ -95,11 +98,14 @@ class QuickLinkPage extends ConsumerWidget {
                         ),
 
                         SizedBox(
-                          width: 70,
+                          width: screenWidth * 0.18,
                           child: Text(
                             "Quick Link Label",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: screenWidth * 0.036,
+                            ),
                           ),
                         ),
                       ],

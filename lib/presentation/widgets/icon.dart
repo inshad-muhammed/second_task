@@ -5,11 +5,13 @@ class IconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Column(
       children: [
         Container(
-          height: 50,
-          width: 50,
+          height: screenWidth * 0.13,
+          width: screenWidth * 0.13,
           decoration: BoxDecoration(
             color: Colors.white,
             // border: Border.all(color: Colors.black.withOpacity(1), width: 0.2),
@@ -23,9 +25,9 @@ class IconWidget extends StatelessWidget {
             ],
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Image.asset("assets/rhombus.png", cacheHeight: 35),
+          child: Image.asset("assets/rhombus.png", height: screenWidth * 0.07),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: screenHeight * 0.01),
       ],
     );
   }
