@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:task2/presentation/riverpod/selection_provider.dart';
+import 'package:task2/controller/selection_provider.dart';
 import 'package:task2/presentation/widgets/button.dart';
 import 'package:task2/presentation/widgets/icon.dart';
 
@@ -18,8 +18,8 @@ class QuickLinkPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        leadingWidth: 50,
+        leading: Icon(Icons.arrow_back, size: screenWidth * 0.06),
+        leadingWidth: screenWidth * 0.15,
         titleSpacing: 0,
         title: Text(
           "Customize Quick Links",
@@ -31,7 +31,10 @@ class QuickLinkPage extends ConsumerWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: EdgeInsets.symmetric(
+          horizontal: screenWidth * 0.05,
+          vertical: screenWidth * 0.05,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,13 +88,13 @@ class QuickLinkPage extends ConsumerWidget {
                           children: [
                             Transform.rotate(angle: angle, child: IconWidget()),
                             if (isSelected)
-                              const Positioned(
-                                bottom: 6,
+                              Positioned(
+                                bottom: 7,
                                 right: -1,
                                 child: Icon(
                                   Icons.check_circle,
                                   color: Colors.green,
-                                  size: 18,
+                                  size: screenWidth * 0.05,
                                 ),
                               ),
                           ],
@@ -116,7 +119,7 @@ class QuickLinkPage extends ConsumerWidget {
             ),
             Spacer(),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: EdgeInsets.only(bottom: screenWidth * 0.02),
               child: Button(),
             ),
           ],

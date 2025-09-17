@@ -14,18 +14,21 @@ class IconWidget extends StatelessWidget {
           width: screenWidth * 0.13,
           decoration: BoxDecoration(
             color: Colors.white,
-            // border: Border.all(color: Colors.black.withOpacity(1), width: 0.2),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 1,
-                blurRadius: 10,
-                offset: Offset(0, 0),
-              ),
-            ],
-            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.black.withAlpha(100), width: 0.7),
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.black.withAlpha(30),
+            //     spreadRadius: 1,
+            //     blurRadius: 10,
+            //     offset: Offset(0, 0),
+            //   ),
+            // ],
+            borderRadius: BorderRadius.circular(screenWidth * 0.03),
           ),
-          child: Image.asset("assets/rhombus.png", height: screenWidth * 0.07),
+          child: Padding(
+            padding: EdgeInsets.all(screenWidth * 0.01),
+            child: Image.asset("assets/rhombus.png"),
+          ),
         ),
         SizedBox(height: screenHeight * 0.01),
       ],
